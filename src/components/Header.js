@@ -30,7 +30,7 @@ const pathMathRoute = (route) => {
           </Link>
           
           <Link to='/signin'>
-             <li className={`py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent cursor-pointer ${pathMathRoute('/signin') && "text-black border-b-red-500"}`}>Sign in</li>
+             <li className={`py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent cursor-pointer ${pathMathRoute('/signIn') && "text-black border-b-red-500"}`}>Sign in</li>
           </Link>
          
         </ul>
