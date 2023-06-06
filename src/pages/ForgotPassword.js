@@ -28,7 +28,7 @@ const ForgotPassword = () => {
             <p>Don't have a account? <Link to='/signUp' className='text-red-500 hover:text-red-600 transition duration-200 ease-in-out'>Register</Link> </p>
             <p className='text-blue-500 hover:text-blue-700 transition duration-200 ease-in-out'><Link to='/signIn'>Sign in</Link> </p>
            </div>
-           <button type='submit' className='w-full bg-blue-600 text-white py-3 uppercase rounded mt-2 text-sm font-medium shadow-md hover:bg-blue-800 transition duration-200 ease-in-out hover:shadow-lg active:bg-blue-800'>Send reset password</button>
+           <button  type='submit' className='w-full bg-blue-600 text-white py-3 uppercase rounded mt-2 text-sm font-medium shadow-md hover:bg-blue-800 transition duration-200 ease-in-out hover:shadow-lg active:bg-blue-800'>Send reset password</button>
            <div className='flex items-center mx-4 mt-3 before:border-t  before:flex-1  before:border-gray-300 after:border-gray-300 after:border-t after:flex-1' >
             <p className='font-semibold text-center mx-4'>OR</p>
            </div>
