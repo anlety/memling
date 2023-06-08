@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import {BsEyeFill, BsEyeSlashFill} from 'react-icons/bs'
 import {Link} from 'react-router-dom'
-import OAuth from '../components/OAuth'
+import OAuth from '../components/OAuth';
+import { signInWithEmailAndPassword, getAuth } from 'firebase/auth';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
   const [formData, setFormData] = useState({
@@ -10,11 +13,29 @@ const SignIn = () => {
   })
   const [showPassword, setShowPassword] = useState(false)
   const {email, password} = formData
+  const navigate = useNavigate()
 
   function handleChange(e){
     setFormData((prevState) => ({
       ...prevState,[e.target.id]: e.target.value,
     }))
+  }
+
+  async function handleSubmit(e){
+    e.preventDefault()
+    try {
+      const auth = getAuth();
+      const userCredential = await signInWithEmailAndPassword(auth, email, password)
+      console.log(userCredential)
+      if(userCredential.user){
+        navigate('/')
+      }
+
+      
+    } catch (error) {
+      toast.error('Wrong user credentials')
+      // console.log(error)
+    }
   }
   return (
     <section>
@@ -24,7 +45,7 @@ const SignIn = () => {
           <img alt='card' className='w-full rounded-2xl' />
         </div>
         <div className='w-full md:w-[67%] lg:w-[40%] lg: ml-20'>
-          <form >
+          <form onSubmit={handleSubmit}>
             <input type='email' id='email' value={email} onChange={handleChange} placeholder='email address' className='w-full px-4 py-2 text-xl text-gray-700 bg-white border-gray-300 rounded transition ease-in-out mb-6' />
             <div className='relative mb-6'>
                <input type={showPassword? 'password' : 'text'} 

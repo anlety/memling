@@ -5,6 +5,7 @@ import Profile from './pages/Profile';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Offers from './pages/Offers';
+import PrivateRoute from './components/PrivateRoute';
 import ForgotPassword from './pages/ForgotPassword';
 import { Route, Routes } from "react-router-dom"
 import Header from './components/Header';
@@ -18,7 +19,10 @@ function App() {
        <Header/>
        <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/profile' element={<Profile/>}/>
+        <Route path='/profile' element={<PrivateRoute/>}>
+           <Route path='/profile' element={<Profile/>}/>
+        </Route>
+       
         <Route path='/signIn' element={<SignIn/>}/>
         <Route path='/signUp' element={<SignUp/>}/>
         <Route path='/offers' element={<Offers/>}/>
