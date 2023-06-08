@@ -5,6 +5,8 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { db } from '../Firebase';
 import { toast } from 'react-toastify';
+import {FcHome} from 'react-icons/fc'
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
   const navigate = useNavigate()
@@ -66,6 +68,12 @@ await updateDoc(docRef, {
           <p className='text-blue-600 cursor-pointer hover:text-blue-800 transition duration-200 ease-in-out' onClick={handleLogout}>Sign out</p>
         </div>
       </form>
+
+      <button type='submit' className='w-full bg-blue-600 text-white uppercase py-3 px-6 text-sm font-medium rounded shadow-md hover:bg-blue-800 transition duration-200 ease-in-out hover:shadow-lg active:bg-blue-800' >
+        <Link to='createListing' className='flex justify-center items-center'>
+          <FcHome className='mr-2 text-2xl bg-red-300 rounded  border-2'/> Sell or rent your home
+        </Link>
+         </button>
     </div>
     </>
   )
